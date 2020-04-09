@@ -15,118 +15,44 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
-// var acc = document.getElementsByClassName("accordion");
-// var i;
+// const animatedTags = document.querySelectorAll(
+//   "h2, h3, p, section img, a.button"
+// );
 
-// for (i = 0; i < acc.length; i++) {
-//   acc[i].addEventListener("click", function () {
-//     /* Toggle between adding and removing the "active" class,
-//     to highlight the button that controls the panel */
-//     this.classList.toggle("active");
-
-//     /* Toggle between hiding and showing the active panel */
-//     var panel = this.nextElementSibling;
-//     if (panel.style.display === "block") {
-//       panel.style.display = "none";
-//     } else {
-//       panel.style.display = "block";
-//     }
-//   });
-// }
-
-// var slideIndex = 1;
-// showSlides(slideIndex);
-
-// function plusSlides(n) {
-//   showSlides((slideIndex += n));
-// }
-
-// function currentSlide(n) {
-//   showSlides((slideIndex = n));
-// }
-
-// function showSlides(n) {
-//   var i;
-//   var slides = document.getElementsByClassName("slides");
-//   var dots = document.getElementsByClassName("dot");
-//   if (n > slides.length) {
-//     slideIndex = 1;
-//   }
-//   if (n < 1) {
-//     slideIndex = slides.length;
-//   }
-//   for (i = 0; i < slides.length; i++) {
-//     slides[i].style.display = "none";
-//   }
-//   for (i = 0; i < dots.length; i++) {
-//     dots[i].className = dots[i].className.replace(" active", "");
-//   }
-//   slides[slideIndex - 1].style.display = "block";
-//   dots[slideIndex - 1].className += " active";
-// }
-
-// PHOTO MODAL
-
-// const photos = document.querySelector("#photos a");
-
-// function prepareLinks(actualLinks) {
-//   const allPictures = document.getElementsByTagName("a");
-//   const modal = document.querySelector("#photos .modal");
-//   const modalContent = document.querySelector("#photos .modal-content");
-//   const close = document.querySelector("#photos .modal-close");
-//   for (let i = 0; i < allPictures.length; i++) {
-//     let thisLink = allPictures[i];
-//     let source = thisLink.getAttribute("href");
-
-//     if (thisLink.getAttribute("class") == "imgLink") {
-//       console.log(source);
-
-//       thisLink.addEventListener("click", function () {
-//         preventDefault();
-//       });
-//     }
-//   }
-// }
-
-// window.onload = prepareLinks();
-
-// const allPictures = document.getElementsByTagName("a");
-// const modal = document.querySelector("#photos .modal");
-// const modalContent = document.querySelector("#photos .modal-content");
-// const close = document.querySelector("#photos .modal-close");
-
-// console.log(allPictures);
-
-// for (let i = 0; i < allPictures.length; i++) {
-//   let thisLink = allPictures[i];
-//   let source = thisLink.getAttribute("href");
-//   if (thisLink.getAttribute("class") == "imgLink") {
-//     thisLink.onclick = function (source) {
-//       modal.style.display = "block";
-
-//       modalContent.innerHTML = source;
-//     };
-//   }
-// }
-
-// const modal = document.querySelector("#photos .modal");
-// const modalContent = document.querySelector("#photos .modal-content");
-// const close = document.querySelector("#photos .modal-close");
-
-// photos.addEventListener("click", function (event) {
-//   event.preventDefault();
-
-//   if ((modal.style.display = "none")) {
-//     modal.style.display = "block";
-
-//     const content = this.innerHTML;
-
-//     modalContent.innerHTML = content;
-//   } else {
-//     modal.style.display = "none";
-//   }
+// // fade out on load
+// animatedTags.forEach((tag) => {
+//   tag.style.opacity = 0;
 // });
 
-// close.addEventListener("click", function () {
-//   modal.style.display = "none";
+// const fadeIn = function () {
+//   // look through all the animated tags and see
+//   // with the getBoundingClientRect if it's in the window
+
+//   let delay = 0.2;
+
+//   animatedTags.forEach((tag) => {
+//     const tagTop = tag.getBoundingClientRect().top;
+//     const tagBottom = tag.getBoundingClientRect().bottom;
+
+//     if (tagTop < window.innerHeight && tagBottom > 0) {
+//       tag.style.animation = `fadein 1s ${delay}s both`;
+//       delay = delay + 0.2;
+//     } else {
+//       tag.style.opacity = 0;
+//       tag.style.animation = "";
+//     }
+//   });
+// };
+
+// // on load, run fadeIn
+// fadeIn();
+
+// // on scroll, run fadeIn
+// document.addEventListener("scroll", function () {
+//   fadeIn();
+// });
+
+// // on browser resize, run fadeIn
+// window.addEventListener("resize", function () {
+//   fadeIn();
 // });

@@ -1,3 +1,7 @@
+// $(window).load(function () {
+//   $("body").removeClass("preload");
+// });
+
 $(".photos a").on("click", function (ev) {
   ev.preventDefault();
   $("#photos .modal").fadeIn(500);
